@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formatting</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>    
+    <nav class="nbar" aria-label="Main navigation">
+        <ul class="nav-list">    
+            <li><a href="index.html">Introduction</a></li>
+            <li><a href="formatting.html">Formatting</a></li>
+            <li><a href="formatting2.html">Formatting continued</a></li>
+            <li><a href="pdfs.html">Reading</a></li>
+            <li><a href="visuals.html">Visuals</a></li>
+            <li><a href="widgets.html">Widgets</a></li>
+            <li><a href="actions.html">Actions</a></li>
+            <li><a href="do.html">Do</a></li>
+            <li><a href="how.html">How</a></li>
+            <li><a href="citations.html">Works Cited</a></li>
+        </ul>
+    </nav>
+    
+    <main id="main-content">
+    <h2>Unpacking THAT</h2>
+    <p>
+        The previous page was an amalgamation of several issues screen readers commonly face. Let's 
+        go through them one by one. 
+    </p>
+
+    <br>
+
+    <h2>Formatting!!</h2>
+    <p>
+        Was that article useful? Did you actually read it? If so, have you considered finding a 
+        hobby? Surely there are better ways you could have spent your last hour than deciphering 
+        that article. This is how things look with no elements under the hood for the screen reader 
+        to differentiate between. Was that block of text realistically usable? Would your teacher or
+        boss accept a 5 page report that was not separated into paragraphs? The answer to both is 
+        definitely
+        NO 
+    </p>
+    <br>
+    <p>
+        Now here is that article with all of its formatting back. it is a compelling study of the 
+        accessibility of online job applications. This source is pear reviewed, though not as
+        dense as other studies of its kind. See what a big difference formatting makes?
+    </p>
+
+    <a href="Reuschel et al (2023) Accessibility and Usability of Online Job Applications.pdf">Accessibility and Usability of Online Job Applications.pdf</a>
+    
+    <br><br>
+
+    <h2>Jumpy Jaws</h2>
+    <p>
+        The page going back to the top every 10 seconds didn't help with that big block of text 
+        either, did it? That automatic page refresh was designed to simulate the issue that screen 
+        readers have so often where they lose focus and jump back to the top of the page. Better 
+        structure and formatting help at least recover from this. Bet you were wishing for a few 
+        headings, or at least some line breaks to split up that big block of text and tell you where 
+        you left off. That's how screen reader users feel when navigating a page that keeps losing 
+        focus and has too few structural elements like headings for the screen reader to jump to 
+        quickly. There is no way to skim read with a screen reader. The closest they can come is 
+        using headings to navigate quickly. However, this is not the same thing at all. There is no 
+        way to quickly and briefly scan a text. This means that massive blocks of text are especially 
+        annoying with screen readers. Doing things such as finding quotes in the middle of blocks of 
+        text Which visual readers find easy is an impossibility with screen readers without reading a 
+        text a bazillion times.
+    </p>
+
+    <br><br>
+
+    <h2>Pop-Ups and Ads</h2>
+    <!--
+        Interspersed with text, have various things interfere with ease of reading and navigation
+        An image that obscures some text making it difficult to read mimicking the way pop-ups start 
+        talking over the screen reader
+        An Image that can’t be scrolled past
+    -->
+    <p>
+        And then there's the giant unicorn. It makes the text very hard to read, blocking most of the 
+        screen. This is similar to the way that pop-ups start talking over the screen reader, making 
+        it difficult to hear what it is saying. They also often block progress through the website as 
+        they are sometimes impossible to navigate past with a screen reader. These are issues screen 
+        readers commonly face. Most ads are not accessible, often rendering the website unusable. 
+        This is true for many articles, but especially in every recipe website on Google, at least 
+        the top ones.
+    </p>
+    
+    <br><br>
+    <button class="next-button" onclick="handleNextClick()">Next</button>
+    </main>
+
+    <audio id="clickSound" src="click.mp3" preload="auto"></audio>
+
+</body>
+</html>

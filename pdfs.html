@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pdfs</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>    
+    <nav class="nbar" aria-label="Main navigation">
+        <ul class="nav-list">    
+            <li><a href="index.html">Introduction</a></li>
+            <li><a href="formatting.html">Formatting</a></li>
+            <li><a href="formatting2.html">Formatting continued</a></li>
+            <li><a href="pdfs.html">Reading</a></li>
+            <li><a href="visuals.html">Visuals</a></li>
+            <li><a href="widgets.html">Widgets</a></li>
+            <li><a href="actions.html">Actions</a></li>
+            <li><a href="do.html">Do</a></li>
+            <li><a href="how.html">How</a></li>
+            <li><a href="citations.html">Works Cited</a></li>
+        </ul>
+    </nav>
+    
+    <main id="main-content">
+    <h2>Crucial Comprehension Reading</h2>
+    <p>
+        Instructions: Open the provided document for a very important reading before moving on.
+    </p>
+    
+    <a href="Very Important Document.pdf">Very Important Document.PDF</a>
+    
+    <br>
+
+    <h3>Quiz</h3>
+    <form action="visuals.html" aria-labelledby="quiz-title">
+        <h3 id="quiz-title">Quiz: Accessible Tables</h3>
+        
+        <div class="form-group">
+            <label for="q1" id="q1-label">1. What are some of the main keys to making an accessible table?</label>
+            <textarea id="q1" name="q1" required aria-labelledby="q1-label" aria-required="true" rows="8" cols="60"></textarea>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="q2" id="q2-label">2. Please make an accessible table. <br></label>
+            <textarea id="q2" name="q2" required aria-labelledby="q2-label" aria-required="true" rows="8" cols="60"></textarea>
+        </div>
+        
+        <button type="submit" aria-label="Submit quiz answers" class="next-button">Submit</button>
+    </form>    
+    <p>
+        When a PDF is not formatted correctly, screen readers will just say "image" when you try to 
+        read the document. Improperly formatted PDFs are the mor common type. Consider using another 
+        document type that tends to be more accessible. This does not Entail learning some obscure new
+        document type. Standard ones such as .doc, .dox, and .txt generally work fine. 
+    </p>
+    </main>
+</body>
+</html>
