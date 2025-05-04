@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,6 +43,112 @@
     alt="Picture of a Next button" width="12%" height="12%" align="right">
 
     <div class="sticky-note">Please attempt to scroll to the end before proceeding.</div>
+
+    <h2>Labels</h2>
+    <h3>Useless Buttons</h3>
+    <p>
+        Surprise! That button looking thing was actually an image. No. It is not just there to mess
+        with you. it is the visual equivalent of an issue that screen readers often encounter: things 
+        that are called buttons, but do not do anything when clicked. Screen readers tell the user 
+        what type of element they are on based on the tag it is given. How annoying was that Next not 
+        button? How many times did you click it? Imagine encountering this issue regularly as screen 
+        reader users do. That is only the beginning of the accessibility issues common across the
+        web.
+    </p>
+    
+    <br>
+
+    <h3>Button?</h3>
+    <p>
+        Imagine you are looking through a website or app and one or more buttons just says "button". 
+        You are pretty sure they are buttons, though as demonstrated above, wether they actually 
+        do anything is uncertain. In this case, pressing them is more risky since you have no idea
+        what it will do. Is it the submit button? The world peace button? The self destruct button?
+        There is no way to know. If crucial buttons are not labeled, the app or sight is unusable.
+        The reason this lack of labels is not noticed by sighted users as much is that the buttons 
+        still have understandable graphics, just no hover text. 
+    </p>
+
+    <br>
+
+    <h3>Short and Sweet</h3>
+    <p>
+        Sometimes, something has a label, but it is not helpful.
+        <br>
+        Nothing will happen when you click these buttons.
+    </p>
+    <br>
+    <p>Button1</p>
+    <button class="bs" type="button">escape close exit quit flee forfeit out away nope discontinue leave etc</button>
+    <br>
+    <p>Button2</p>
+    <button class="bs" type="button">Dog</button>
+    <br>
+    <p>Button3</p>
+    <button class="bs" type="button">continue</button>
+    <br>
+    <p>Button4</p>
+    <button class="bs" type="button"></button>
+    <br>
+    <p>Which button actually makes sense?</p>
+    
+    <br><br>
+    <audio id="clickSound" src="click.mp3" preload="auto"></audio>
+    <button class="next-button" onclick="handleNextClick()">Next</button>
+    </main>
+</body>
+</html>-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Web Surfing by Sound</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>    
+    <nav class="nbar" aria-label="Main navigation">
+        <!-- Hamburger menu button will be added by JavaScript -->
+        <ul class="nav-list" id="main-navigation" aria-expanded="false">    
+            <li><a href="index.html">Introduction</a></li>
+            <li><a href="formatting.html">Formatting</a></li>
+            <li><a href="formatting2.html">Formatting continued</a></li>
+            <li><a href="pdfs.html">Reading</a></li>
+            <li><a href="visuals.html">Visuals</a></li>
+            <li><a href="widgets.html">Widgets</a></li>
+            <li><a href="actions.html">Actions</a></li>
+            <li><a href="do.html">Do</a></li>
+            <li><a href="how.html">How</a></li>
+            <li><a href="citations.html">Works Cited</a></li>
+        </ul>
+    </nav>
+    
+    <main id="main-content">
+    <div class="sticky-note">Please attempt to scroll to the end before proceeding.</div>
+
+    <h1>Web Surfing by Sound</h1>
+    <p>
+        Some people need to access the digital world non-visually. Often, this is done using screen 
+        readers. A screen reader is a software program that ideally speaks aloud what is displayed 
+        visually on the screen. Screen reader users navigate using the keyboard rather than a mouse. 
+        Some popular ones include JAWS, NVDA, Voiceover, and TalkBack. So, everything's great right? 
+        The digital world is totally accessible with this amazing tool. Unfortunately, this is not 
+        the case. Screen readers rely on what the underlying code looks like. they don't care about 
+        the beautiful graphic user interface on top. If under the pretty pictures there are not 
+        enough labels or semantic elements, or if it's just an image, the screen reader doesn't do 
+        well. These issues are present to varying extents in pretty much every application and 
+        website. This will go into putting these commonly faced problems into what they would look 
+        like visually. Hopefully, by the end, this convinces some of the need to code clearly. 
+    </p>
+    <img                
+    src="https://t4.ftcdn.net/jpg/00/30/84/09/240_F_30840998_1olyiKOLD3q1chpvenHSsuzW7kRMmtZe.jpg" 
+    alt="Picture of a Next button" width="12%" height="12%" align="right">
     <div role="separator" aria-label="Visual break" class="divider"></div>
 
     <h2>Labels</h2>

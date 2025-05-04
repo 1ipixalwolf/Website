@@ -1,15 +1,48 @@
-/* Modern Color Scheme - Enhanced for accessibility */
+/* Modern Color Scheme - Enhanced for accessibility with dark mode support */
 :root {
-  --primary-color: #1a5cb8; /* Darker blue for better contrast */
-  --primary-dark: #0f407f; /* Even darker blue */
-  --secondary-color: #2b882b; /* Darker green for better contrast */
-  --accent-color: #e67e00; /* Darker orange for better contrast */
+  /* Light Theme Colors */
+  --primary-color: #1a5cb8; 
+  --primary-dark: #0f407f;
+  --secondary-color: #2b882b;
+  --accent-color: #e67e00;
   --light-bg: #f8f9fa;
   --dark-text: #212529;
   --light-text: #ffffff;
+  --card-bg: #ffffff;
   --border-radius: 8px;
   --transition-speed: 0.3s;
   --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --nav-gradient: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  --next-button-gradient: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+  --next-button-hover: linear-gradient(to right, var(--primary-dark), #1e50a0);
+  --sticky-note-bg: linear-gradient(to bottom right, #fffb8f, #fff5b1);
+  --sticky-note-border: #e0c700;
+  --sticky-note-text: #333;
+  --code-bg: #f0f0f0;
+  --code-color: #d01a65;
+}
+
+/* Dark Theme Colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #4d8eed;
+    --primary-dark: #2b6fcb;
+    --secondary-color: #4aba4a;
+    --accent-color: #ff9f33;
+    --light-bg: #121212;
+    --dark-text: #e1e1e1;
+    --light-text: #ffffff;
+    --card-bg: #1e1e1e;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --nav-gradient: linear-gradient(135deg, #2b6fcb, #1a5cb8);
+    --next-button-gradient: linear-gradient(to right, #4d8eed, #2b6fcb);
+    --next-button-hover: linear-gradient(to right, #2b6fcb, #1a5cb8);
+    --sticky-note-bg: linear-gradient(to bottom right, #665e00, #574f00);
+    --sticky-note-border: #7d7200;
+    --sticky-note-text: #f5f5f5;
+    --code-bg: #2a2a2a;
+    --code-color: #ff6b9d;
+  }
 }
 
 /* Base Styles */
@@ -19,6 +52,7 @@ body {
   background-color: var(--light-bg);
   color: var(--dark-text);
   line-height: 1.6;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 main {
@@ -26,9 +60,10 @@ main {
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: var(--card-bg);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
+  transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 /* Typography */
@@ -38,17 +73,17 @@ h1, h2, h3 {
   margin-bottom: 1rem;
   font-weight: 500;
   line-height: 1.2;
+  transition: color var(--transition-speed);
 }
 
 h1 {
   font-size: 2.5rem;
-  color: var(--primary-dark);
+  color: var(--primary-color);
 }
 
 h2 {
   font-size: 2rem;
   color: var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
   padding-bottom: 0.5rem;
 }
 
@@ -82,11 +117,15 @@ p {
 
 .nbar {
   width: 100%;
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  background: var(--nav-gradient);
   color: var(--light-text);
   padding: 15px;
   box-sizing: border-box;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background var(--transition-speed);
 }
 
 .nav-list {
@@ -104,15 +143,9 @@ p {
   position: relative;
 }
 
-/* Add decorative separators between nav items */
+/* Decorative separators between nav items */
 .nav-list li:not(:last-child)::after {
-  content: "•";
-  position: absolute;
-  right: -5px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1.2rem;
+  content: "-";
 }
 
 .nav-list a {
@@ -139,41 +172,53 @@ p {
   border-bottom: 3px solid var(--accent-color);
 }
 
+/* Mobile Navigation Hamburger */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--light-text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.menu-toggle:focus {
+  outline: 2px solid var(--accent-color);
+}
+
 /* Sticky Note */
 .sticky-note {
   position: fixed;
   top: 100px;
   left: 40px;
-  background: linear-gradient(to bottom right, #fffb8f, #fff5b1);
-  color: #333;
+  background: var(--sticky-note-bg);
+  color: var(--sticky-note-text);
   padding: 20px;
   font-size: 1rem;
-  border: 1px solid #e0c700;
+  border: 1px solid var(--sticky-note-border);
   box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
   width: 200px;
   transform: rotate(-3deg);
   z-index: 1000;
   font-family: 'Comic Sans MS', cursive, sans-serif;
-  transition: transform var(--transition-speed);
+  transition: transform var(--transition-speed), background var(--transition-speed), color var(--transition-speed);
 }
 
 .sticky-note:hover {
   transform: rotate(0deg) scale(1.05);
 }
 
-/* Divider - removed completely */
+/* Divider - completely removed */
 .divider {
-  margin: 60px 0;
-  height: 400px; /* Maintained height as requested */
-  /* No visual elements */
-  border: none;
-  background: none;
+  display: none;
 }
 
 /* Button Styles */
 .bs {
-  background-color: orange; /* Original color as in your code */
-  color: black; /* High contrast with orange */
+  background-color: orange; 
+  color: black;
   padding: 10px 15px;
   border: none;
   border-radius: var(--border-radius);
@@ -191,7 +236,7 @@ p {
 .next-button {
   display: block;
   margin: 40px auto;
-  background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+  background: var(--next-button-gradient);
   color: white;
   font-size: 1.5rem;
   padding: 12px 30px;
@@ -203,18 +248,19 @@ p {
 }
 
 .next-button:hover, .next-button:focus {
-  background: linear-gradient(to right, var(--primary-dark), #1e50a0);
+  background: var(--next-button-hover);
   transform: translateY(-3px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Code blocks - improved contrast */
 code {
-  background-color: #f0f0f0;
-  color: #d01a65; /* Darker pink for better contrast */
+  background-color: var(--code-bg);
+  color: var(--code-color);
   padding: 2px 4px;
   border-radius: 4px;
   font-family: 'Courier New', monospace;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 /* Images */
@@ -225,24 +271,23 @@ img {
   box-shadow: var(--box-shadow);
 }
 
-/* DO styles - Fixed to be fully greenyellow with no white outline */
 .do {
-  background-color: greenyellow; /* Original color as requested */
-  color: black; /* High contrast black text as requested */
+  background-color: greenyellow;
+  color: black; 
   text-align: center;
   width: 100%;
   padding: 20px 0;
   margin: 20px 0;
-  border-radius: 0; /* Remove any rounding */
-  box-shadow: none; /* Remove any shadow */
-  border: none; /* Remove any border */
-  outline: none; /* Remove any outline */
+  border-radius: 0; 
+  box-shadow: none; 
+  border: none; 
+  outline: none; 
 }
 
 /* Target the main container to ensure greenyellow bleeds to edges */
 main .do {
-  width: calc(100% + 60px); /* Extend beyond the main container padding */
-  margin-left: -30px; /* Negative margin to extend to the edge */
+  width: calc(100% + 60px);
+  margin-left: -30px;
   margin-right: -30px;
 }
 
@@ -255,9 +300,9 @@ main .do, .do p {
 }
 
 .do p {
-  font-size: 300pt; /* HUGE text as originally specified */
-  margin: 0; /* Remove margin */
-  padding: 0; /* Remove padding */
+  font-size: 300pt; 
+  margin: 0; 
+  padding: 0; 
   font-weight: bold;
   line-height: 1;
 }
@@ -276,40 +321,64 @@ main .do, .do p {
 }
 
 /* Responsive design */
-/* Enhanced responsive design */
 @media (max-width: 768px) {
+  /* Mobile navigation with hamburger menu */
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+  }
+  
   .nbar {
-    padding: 10px 5px;
+    padding: 15px 5px;
   }
   
   .nav-list {
+    display: none; /* Hide by default on mobile */
     flex-direction: column;
     align-items: center;
     width: 100%;
+    padding-top: 60px; /* Space for the hamburger button */
+    background: var(--nav-gradient);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+  
+  .nav-list.show {
+    display: flex;
   }
   
   .nav-list li {
-    width: 100%;
-    margin-bottom: 5px;
-  }
-  
-  /* Remove decorative separators on mobile */
-  .nav-list li:not(:last-child)::after {
-    display: none;
+    width: 80%;
+    margin: 5px 0;
   }
   
   .nav-list a {
     width: 100%;
     text-align: center;
     border-radius: 4px;
-    padding: 12px 5px;
+    padding: 15px 5px;
+    font-size: 1.2rem;
+  }
+  
+  .nav-list a.active {
+    border-bottom: none;
+    border-left: 5px solid var(--accent-color);
   }
   
   main {
-    padding: 15px;
+    padding: 20px 15px;
+    margin-top: 15px;
     border-radius: 0;
     box-shadow: none;
-    width: calc(100% - 30px); /* Account for padding */
+    width: calc(100% - 30px); 
   }
   
   h1 {
@@ -335,7 +404,7 @@ main .do, .do p {
   
   /* Responsive DO class */
   .do p {
-    font-size: 120pt; /* Still huge but fits on mobile screens */
+    font-size: 120pt; 
   }
   
   /* Make images fully responsive */
@@ -348,7 +417,7 @@ main .do, .do p {
   
   /* Ensure .do has no white outline on mobile */
   main .do {
-    width: calc(100% + 30px); /* Account for smaller padding on mobile */
+    width: calc(100% + 30px); 
     margin-left: -15px;
     margin-right: -15px;
     padding: 20px 0;
@@ -359,8 +428,13 @@ main .do, .do p {
 
 /* Small devices (phones) */
 @media (max-width: 480px) {
+  .nav-list a {
+    padding: 12px 5px;
+    font-size: 1.1rem;
+  }
+  
   .do p {
-    font-size: 72pt; /* Still very large but fits on small screens */
+    font-size: 72pt; 
   }
   
   h1 {
@@ -373,6 +447,16 @@ main .do, .do p {
   
   h3 {
     font-size: 1.1rem;
+  }
+  
+  main {
+    padding: 15px 10px;
+  }
+  
+  main .do {
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    margin-right: -10px;
   }
 }
 
